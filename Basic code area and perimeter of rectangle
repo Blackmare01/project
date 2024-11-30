@@ -1,0 +1,51 @@
+from tkinter import*
+
+def area():
+	try:
+		num1 = float(e1.get())
+		num2 = float(e2.get())
+		result = num1*num2
+		e3.delete(0,END)
+		e3.insert(0,str(result))
+	except ValueError:
+		e3.delete(0, END)
+		e3.insert(0,"Invalid input")
+		
+def perimeter():
+	try:
+		num1 = float(e1.get())
+		num2 = float(e2.get())
+		result = 2(num1+num2)
+		e3.delete(0,END)
+		e3.insert(0,str(result))
+	except ValueError:
+		e3.delete(0, END)
+		e3.insert(0,"Invalid input")
+		
+p = Tk()
+p.title("Simple Calculating of Area and perimeter of rectangle")
+p.minsize(width=1000,height=1000)
+
+#Label
+l1 = Label(p,text="First number:",font=("calibri",15),fg="black")
+l1.place(x=10,y=120)
+l2 = Label(p,text="Second number:",font=("calibri",15),fg="black")
+l2.place(x=10,y=160)
+l3 = Label(p,text="Result:",font=("calibri",15),fg="black")
+l3.place(x=10,y=280)
+
+#Entry
+e1 = Entry(p,font=("calibri",15),fg="black",bd=5,relief=RIDGE)
+e1.place(x=225,y=120)
+e2 = Entry(p,font=("calibri",15),fg="black",bd=5,relief=RIDGE)
+e2.place(x=225,y=160)
+e3 = Entry(p,font=("calibri",15),fg="black",bd=5,relief=RIDGE)
+e3.place(x=225,y=280)
+
+#Button
+b1 = Button(p,text="Area",font=("calibri",15),fg="white",bg="black",bd=3,relief=RIDGE,command=area)
+b1.place(x=30,y=215)
+b2 = Button(p,text="Perimeter",font=("calibri",15),fg="white",bg="black",bd=3,relief=RIDGE,command=perimeter)
+b2.place(x=155,y=215)
+
+p.mainloop()
